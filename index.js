@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 renderApi.auth('rnd_4fczT3QDusmVdxXfOii7Lapqcky2');
 
 // מסלול שמחזיר את רשימת ה-Services שלך ב-Render
-app.get('/services', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const { data } = await renderApi.listServices({ includePreviews: 'true', limit: '20' });
     res.json(data);
@@ -19,9 +19,9 @@ app.get('/services', async (req, res) => {
 });
 
 // מסלול ברירת מחדל
-app.get('/', (req, res) => {
-  res.send('Hello from Render!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello from Render!');
+// });
 
 // מאזין לפורט הנדרש
 app.listen(PORT, () => {
